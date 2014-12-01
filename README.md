@@ -1,4 +1,4 @@
-famous-angular-cordova-seed
+magic numbers
 =====
 
 [Famo.us/Angular](http://famo.us/angular) seed project w/ Cordova

@@ -7,7 +7,8 @@
     "famous-angular": "~0.5.0",
     "ngCordova": "~0.1.7-alpha",
     "angular-ui-router": "~0.2.11",
-    "ionic": "~0.9.27"
+    "ionic": "~0.9.27",
+    "sass-bootstrap": "~3.0.2"
   },
   "resolutions": {
     "angular": "~1.2.26",
