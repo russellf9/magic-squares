@@ -1,0 +1,19 @@
+{
+  "name": "magic-squares",
+  "version": "0.0.0",
+  "homepage": "https://github.com/russellf9/magic-numbers",
+  "authors": [
+    "russellf9 <russell@factornine.co.uk>"
+  ],
+  "description": "\"A simple `Magic Squares` game\",",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.3.9",
+    "angular-animate": "~1.3.9",
+    "angular-route": "~1.3.9",
+    "jquery": "~2.1.3",
+    "animate.css": "~3.2.0",
+    "bootstrap": "~3.3.2",
+    "fontawesome": "~4.2.0"
+  }
+}
