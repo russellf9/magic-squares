@@ -28,7 +28,7 @@
         .controller('MainController', [
             '$scope',
             function($scope) {
-                $scope.test = 'Shit Testing...';
+                $scope.test = 'Ok Testing...';
             }
         ]);
 
