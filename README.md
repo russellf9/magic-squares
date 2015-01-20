@@ -1,16 +1,12 @@
-magic numbers
+Magic Numbers
 =====
 
-[Famo.us/Angular](http://famo.us/angular) seed project w/ Cordova
+A simple Angular "Magic Numbers" game.
 
 #### commands
 
-`npm install` - install dependencies (there's a postinstall script for bower)
+`npm install` - install dependencies
 
-`gulp setup` - setup platform (by default ios; modify gulpfile.js for others)
+`gulp` - the default task
 
-`gulp build` - build full app (w/ index.html) to www/
-
-`gulp serve` - debug server
-
-`cordova run [ios | android]` - deploy to phone/emulator
+`gulp build` - build and distribute the app to the `dist` folder
