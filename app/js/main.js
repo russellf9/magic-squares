@@ -2,35 +2,23 @@
 
     'use strict';
 
+    function config ($routeProvider, $locationProvider) {
+        $locationProvider.hashPrefix('!');
+        // routes
+        $routeProvider
+            .when('/', {
+                templateUrl: './partials/partial1.html',
+                controller: 'MainController',
+                controllerAs: 'main'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+    }
 
-    angular.module('SampleApp', ['ngRoute', 'ngAnimate'])
-
-        .config([
-            '$locationProvider',
-            '$routeProvider',
-            function($locationProvider, $routeProvider) {
-                $locationProvider.hashPrefix('!');
-                // routes
-                $routeProvider
-                    .when('/', {
-                        templateUrl: './partials/partial1.html',
-                        controller: 'MainController'
-                    })
-                    .otherwise({
-                        redirectTo: '/'
-                    });
-            }
-        ]);
-
-    //Load controller
-    angular.module('SampleApp')
-
-        .controller('MainController', [
-            '$scope',
-            function($scope) {
-                $scope.test = 'OK Testing...';
-            }
-        ]);
-
+    angular
+        .module('app', ['ngRoute', 'ngAnimate'])
+        .config(config);
 }());
+
 

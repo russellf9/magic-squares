@@ -14,6 +14,7 @@ var gulp = require('gulp'),
     usemin = require('gulp-usemin'),
     concat = require('gulp-concat'),
     rev = require('gulp-rev'),
+    gulpif = require('gulp-if'),
     livereload = require('gulp-livereload');
 
 // tasks
@@ -36,9 +37,10 @@ gulp.task('jscs', function() {
         }));
 });
 // cleans the distribution folder
-gulp.task('clean', function() {
+gulp.task('clean', function(cb) {
     gulp.src('./dist/*')
-        .pipe(clean({force: true}));
+        .pipe(clean({force: true})).on('error', errorHandler);
+    cb()
 });
 // cleans the build folder
 gulp.task('clean-build', function() {
@@ -52,9 +54,11 @@ gulp.task('minify-css', function() {
         .pipe(minifyCSS(opts))
         .pipe(gulp.dest('./dist/'))
 });
-gulp.task('copy-partial-html-files', function() {
+//
+gulp.task('copy-partial-html-files', ['usemin'], function(cb) {
     gulp.src('./app/**/partials/*.html')
         .pipe(gulp.dest('dist/'));
+    cb()
 });
 // browserify
 gulp.task('browserify', function() {
@@ -83,22 +87,31 @@ gulp.task('connectDist', function() {
     });
 });
 
-
 // TODO work out if we can require the `clean` task to be completed first
-gulp.task('usemin', ['clean'], function() {
+gulp.task('usemin', ['clean'], function(cb) {
+    var condition = 'app.js';
+
     return gulp.src('./app/**/*.html')
         .pipe(usemin({
             css: [minifyCSS()],
-            // html: [minifyHTML({empty: true})], // ! for the time being don't minify HTML
-            js: [uglify()]
+            html: [minifyHTML({empty: true})]
         }))
+        .pipe(gulpif(condition, uglify()))
         .pipe(gulp.dest('dist/'));
+    cb()
+});
+
+// testing uglify
+gulp.task('compress', function() {
+    gulp.src('app/js/**/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('test'))
 });
 
 // Watch Files For Changes
 // TODO - need to get the build task working here
 gulp.task('watch', function() {
-    gulp.watch('app/js/**/*.js', ['lint', 'jscs']);
+    gulp.watch('app/js/**/*.js', ['lint', 'jscs', 'build']);
 });
 
 gulp.task('refresh', function() {
@@ -109,14 +122,13 @@ gulp.task('refresh', function() {
 
 // default task
 gulp.task('default',
-    ['lint', 'jscs', 'watch', 'connect']
+    ['watch', 'connect']
 );
 // build task
 // TODO a bit hackey need a better way of moving the partials
 gulp.task('build',
-    ['lint', 'jscs', 'usemin', 'copy-partial-html-files', 'connectDist']
+    ['clean', 'lint', 'jscs', 'usemin', 'copy-partial-html-files', 'connectDist']
 );
-
 
 
 // Handle errors

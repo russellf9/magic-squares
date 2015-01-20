@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="SampleApp">
+<html ng-app="app">
 <head lang="en">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
     <div ng-view></div>
 </div>
 
-<!-- build:js1 js/vendor.js -->
+<!-- build:js1 dist/js/vendor.js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
@@ -34,8 +34,9 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <!-- endbuild -->
 
-<!-- build:js2 js/app.js -->
+<!-- build:js2 dist/js/app.js -->
 <script src="js/main.js"></script>
+<script src="js/controllers/main.ctrl.js"></script>
 <!-- endbuild -->
 </body>
 </html>
