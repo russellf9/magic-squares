@@ -7,7 +7,7 @@
         // routes
         $routeProvider
             .when('/', {
-                templateUrl: './partials/partial1.html',
+                templateUrl: './partials/game.html',
                 controller: 'MainController',
                 controllerAs: 'main'
             })
