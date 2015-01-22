@@ -2,7 +2,7 @@
 
 //controller for single project view
 angular.module('app').controller('DragDrop', ['$scope', function($scope) {
-    console.log('hi from Drag Drop!');
+    console.log('-GULP-TEST- 17:14 hi from Drag Drop!');
     this.test = 'From Drag Drop!';
 
     this.onDragOver = function(event) {
