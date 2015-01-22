@@ -1,16 +1,40 @@
-<div class="row" >
+<div class="row">
     <div class="col-md-7" style="border: solid 1px bisque">
-        <div class="game-container">
+        <div class="game-container" ng-controller="Master as master">
             <div class="instructions" ng-controller="Instructions as instructions">
                 <p>{{ main.test }}</p>
             </div>
 
 
-            <div class="drag-drop" ng-controller="DragDrop as dragDrop">
-                <p>OK yah {{ dragDrop.test }}</p>
+            <div class="panel panel-default drag-drop" ng-controller="DragDrop as dragDrop">
+
+
+                <div class="drop-zone">
+                    <div class="slot" droppable on-drop="dragDrop.dropped"></div>
+                </div>
+
+                <div class="drag-home">
+
+                    <div class="square red" draggable>1</div>
+
+
+                </div>
+
+
             </div>
+
+        </div>
+
+
+        <div class="game-controls blue">
+            <p>controls</p>
         </div>
     </div>
 </div>
+
+
+
+
+
 
 

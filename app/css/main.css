@@ -14,7 +14,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    margin: 0;
+    width: 500px;
     height: 45px;
 
     border: solid 1px blue;
@@ -28,6 +29,38 @@
     height: 405px;
 
     border: solid 1px darkgreen;
+}
+
+.drop-zone {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 500px;
+    height: 245px;
+    border: solid 1px slategrey;
+}
+
+.drag-home {
+    position: absolute;
+
+    top: 245px;
+    left: 0;
+
+    width: 500px;
+    height: 160px;
+
+    border: solid 1px gold;
+}
+
+.game-controls {
+    position: absolute;
+    left: 0;
+    top: 450px;
+    width: 500px;
+    height: 50px;
+
+    border: solid 2px gold;
 }
 
 /*  Styles for the lvlDragDrop drag drop */
@@ -54,21 +87,24 @@
     border:1px solid black;
 }
 
-.peg {
+.square {
+    display: inline-block;
     text-align: center;
     font-weight: bold;
     border:1px black solid;
+    margin: 5px;
     width: 75px;
-    margin: 10px;
+    min-height: 75px;
 }
 
 .slot {
-    margin-right:2px;
-    margin-top:2px;
-    width:25;
-    height:25px;
+    margin-right:5px;
+    margin-top:5px;
+    width:75px;
+    height:75px;
     display:inline-block;
-    border: none;
+    /*border: none;*/
+    border: dashed 1px darkgreen
 }
 
 .red {

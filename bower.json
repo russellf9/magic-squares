@@ -15,5 +15,11 @@
     "animate.css": "~3.2.0",
     "bootstrap": "~3.3.2",
     "fontawesome": "~4.2.0"
+  },
+  "devDependencies": {
+    "angular-drop": "~0.0.1",
+    "angular-draganddrop": "~0.2.1",
+    "angular-dragdrop": "~1.0.11",
+    "ngDraggable": "*"
   }
 }
