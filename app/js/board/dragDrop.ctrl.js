@@ -7,22 +7,18 @@ angular.module('app').controller('DragDrop', ['$scope', '$compile', function($sc
     var self = this;
     this.test = 'From Drag Drop!';
 
-    this.dropTargets = [
-        {thumb: '1.png'},
-        {thumb: '2.png'},
-        {thumb: '3.png'},
-        {thumb: '4.png'}
-    ];
+    var numberOfSquares = 9;
+
+    this.dropTargets = [];
+
+    this.list2 = [];
+
+    for(var i = 0; i<numberOfSquares; i++) {
+        this.dropTargets.push({value:i});
+        this.list2.push({title: i+1, drag: true})
+    }
 
     this.list1 = [];
-
-
-    this.list2 = [
-        {title: 'K', drag: true},
-        {title: 'E', drag: true},
-        {title: 'B', drag: true},
-        {title: 'A', drag: true}
-    ];
 
     this.startCallback = function(event, ui, title) {
         console.log('You started dragging: ' + title.title);

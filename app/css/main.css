@@ -10,7 +10,7 @@ h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
     width: 500px;
     height: 500px;
 
-    border: solid 4px tomato;
+    border: solid 1px #222;
 }
 
 .instructions {
@@ -21,7 +21,7 @@ h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
     width: 500px;
     height: 45px;
 
-    border: solid 1px blue;
+    /*background-color: rgba(0,255,0,0.1);*/
 }
 
 .drag-drop {
@@ -31,17 +31,18 @@ h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
     width: 500px;
     height: 405px;
 
-    border: solid 1px darkgreen;
+    /*border: solid 1px darkgreen;*/
 }
 
 .drop-zone {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 500px;
     height: 245px;
-    border: solid 1px slategrey;
+
+    /*border: solid 1px slategrey;*/
+    /*background-color: rgba(0,255,0,0.1);*/
 }
 
 .drag-home {
@@ -52,8 +53,10 @@ h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
 
     width: 500px;
     height: 160px;
+    /* quick positioning hack */
+    padding-left: 35px;
 
-    border: solid 1px gold;
+    /*border: solid 1px gold;*/
 }
 
 .game-controls {
@@ -63,13 +66,13 @@ h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
     width: 500px;
     height: 50px;
 
-    border: solid 2px gold;
+    /*border: solid 2px gold;*/
 }
 
 
 
 
-/* TODO aly similar opacity effect on drag */
+/* TODO apply similar opacity effect on drag */
 .lvl-target {
     /* applied to all drop targets when a drag operation begins, used to indicate drop targets on a page */
     background-color: #ddd;
@@ -91,7 +94,7 @@ h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
 
 .btn-droppable {
     padding: 0;
-    z-index: -1;
+    /*z-index: -1;*/
     cursor: default;
 }
 
@@ -114,14 +117,33 @@ h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
     width: 75px;
     min-height: 75px;
 }
+.drop-board {
+    /* hard-code for now */
+    width: 300px;
+    padding-top: 3px;
+    padding-left: 22px;
+    /*padding-right: 10px;*/
+    margin-left: auto;
+    margin-right: auto;
+
+    border: solid 1px #222;
+}
 
 .drop-slot {
     display: inline-block;
     border: dashed 1px darkgreen;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 75px !important;
+    height: 75px !important;
 }
 
 .drag-slot {
     border:1px #999 solid;
+    /* bit hacky now */
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 .drag-text {
     width: 75px;
@@ -163,3 +185,31 @@ pre strong {
     font-size:12pt;
 }
 
+
+
+/*------------------------------------*\
+    LISTS
+    See: http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
+\*------------------------------------*/
+ul{
+    width:inherit;
+    height: inherit;
+    margin-bottom:20px;
+    /*overflow:hidden;*/
+    /*border-left:1px solid #a32d00;*/
+    /*border-right:1px solid #a32d00;*/
+    /*border-bottom:1px solid #a32d00;*/
+}
+li{
+    padding: 0;
+    margin: 0;
+    line-height:1.5em;
+    height: 75px;
+    /*border-bottom:1px solid #ccc;*/
+    float:left;
+    display:inline;
+}
+#double li	{ width:50%;}
+#triple li	{ width:33.333%; }
+#quad li		{ width:25%; }
+#six li		{ width:16.666%; }
