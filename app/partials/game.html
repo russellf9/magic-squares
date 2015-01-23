@@ -2,7 +2,8 @@
     <div class="col-md-7">
         <div class="game-container" ng-controller="Master as master">
             <div class="instructions" ng-controller="Instructions as instructions">
-                <p>{{ main.test }}</p>
+                <p>Correct: {{master.allCorrect}}</p>
+                <h2 ng-if="master.alCorrect">Well done all correct!</h2>
             </div>
 
 
