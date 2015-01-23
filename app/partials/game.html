@@ -11,13 +11,13 @@
                 <div class="drop-zone">
                     <ul id="triple" class="drop-board">
                         <li class="square drop-slot" ng-repeat="image in dragDrop.dropTargets track by $index">
-                            <div class="btn btn-droppable square" data-drop="true" ng-model='dragDrop.list1'
+                            <div class="btn btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
                                 jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback',onOver: 'dragDrop.overCallback', onOut: 'dragDrop.outCallback'}">
-                                <div class="btn btn-info square btn-draggable" ng-show="dragDrop.list1[$index].title"
-                                     data-drag="{{dragDrop.list1[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}"
-                                     ng-model="dragDrop.list1"
+                                <div class="btn btn-info square btn-draggable" ng-show="dragDrop.selectedItems[$index].title"
+                                     data-drag="{{dragDrop.selectedItems[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}"
+                                     ng-model="dragDrop.selectedItems"
                                      jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false}">
-                                    <span class="drag-text"><h1>{{dragDrop.list1[$index].title}}</h1></span>
+                                    <span class="drag-text"><h1>{{dragDrop.selectedItems[$index].title}}</h1></span>
                                 </div>
                             </div>
                         </li>
@@ -56,13 +56,13 @@
 <div class="square drop-slot" style='margin-left:10px;' ng-repeat="image in dragDrop.dropTargets track by $index">
 
 
-    <li class="btn btn-droppable square" data-drop="true" ng-model='dragDrop.list1'
+    <li class="btn btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
         jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback',onOver: 'dragDrop.overCallback', onOut: 'dragDrop.outCallback'}">
-        <div class="btn btn-info square btn-draggable" ng-show="dragDrop.list1[$index].title"
-             data-drag="{{dragDrop.list1[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}"
-             ng-model="dragDrop.list1"
+        <div class="btn btn-info square btn-draggable" ng-show="dragDrop.selectedItems[$index].title"
+             data-drag="{{dragDrop.selectedItems[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}"
+             ng-model="dragDrop.selectedItems"
              jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false}">
-            <span class="drag-text"><h1>{{dragDrop.list1[$index].title}}</h1></span>
+            <span class="drag-text"><h1>{{dragDrop.selectedItems[$index].title}}</h1></span>
         </div>
     </li>
 </div>
