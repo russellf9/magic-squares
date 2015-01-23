@@ -1,4 +1,7 @@
-
+/* http://snook.ca/archives/html_and_css/font-size-with-rem */
+html { font-size: 62.5%; }
+body { font-size: 14px; font-size: 1.4rem;  } /* =14px */
+h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
 
 .game-container {
     position: absolute;
@@ -63,12 +66,10 @@
     border: solid 2px gold;
 }
 
-/*  Styles for the lvlDragDrop drag drop */
-.lvl-over {
-    /* applied to a drop target when a draggable object is over it */
-    border: 2px dashed black !important;
-}
 
+
+
+/* TODO aly similar opacity effect on drag */
 .lvl-target {
     /* applied to all drop targets when a drag operation begins, used to indicate drop targets on a page */
     background-color: #ddd;
@@ -87,36 +88,26 @@
     border:1px solid black;
 }
 
-.square-block {
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-    border:1px black solid;
-    margin: 5px;
-    width: 75px;
-    min-height: 75px;
-}
 
 .btn-droppable {
     padding: 0;
-    /*margin: 5px;*/
-    border:1px #999 solid;
     z-index: -1;
+    cursor: default;
+}
 
-    width:75px;
-    height:75px;
 
-
+.btn-draggable {
+    z-index: 1;
+    padding: 0;
+    cursor: move;
 }
 
 .btn-info {
     color: #fff;
     background-color: #5bc0de;
     border-color: #46b8da;
-}
-
-.btn-draggable {
-    z-index: 1;
+    text-align: center;
+    font-weight: bold;
 }
 
 .square {
@@ -124,26 +115,28 @@
     min-height: 75px;
 }
 
-
-.emage { max-height: 50px; }
-
-.slot {
+.drop-slot {
     display: inline-block;
-    width:75px;
-    height:75px;
-    /*border: none;*/
-    border: dashed 1px darkgreen
+    border: dashed 1px darkgreen;
 }
 
-.slot-block {
-    margin-right:5px;
-    margin-top:5px;
-    width:75px;
-    height:75px;
-    display:inline-block;
-    /*border: none;*/
-    border: dashed 1px darkgreen
+.drag-slot {
+    border:1px #999 solid;
 }
+.drag-text {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
+.drag-text h1 {
+    margin: 0;
+    padding: 0;
+}
+
 
 .red {
     background-color: red;
@@ -169,3 +162,4 @@
 pre strong {
     font-size:12pt;
 }
+
