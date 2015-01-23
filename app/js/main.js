@@ -17,7 +17,7 @@
     }
 
     angular
-        .module('app', ['ngRoute', 'ngAnimate'])
+        .module('app', ['ngRoute', 'ngAnimate', 'ngDragDrop'])
         .config(config);
 }());
 

@@ -8,28 +8,67 @@
 
             <div class="panel panel-default drag-drop" ng-controller="DragDrop as dragDrop">
 
-
                 <div class="drop-zone">
-                    <div class="slot" droppable on-drop="dragDrop.dropped"></div>
+
+                    <div class="square slot" style='margin-left:10px;' ng-repeat="image in dragDrop.dropTargets track by $index">
+                        <div class="btn btn-droppable" data-drop="true" ng-model='dragDrop.list1'
+                             jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback',onOver: 'dragDrop.overCallback', onOut: 'dragDrop.outCallback'}">
+                            <div class="btn btn-info square btn-draggable" ng-show="dragDrop.list1[$index].title"
+                                 data-drag="{{dragDrop.list1[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}"
+                                 ng-model="dragDrop.list1"
+                                 jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false}">
+                                {{dragDrop.list1[$index].title}}
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
 
                 <div class="drag-home">
 
-                    <div class="square red" on-drop="dragDrop.dropped" draggable="false">1</div>
+                    <div class="btn btn-droppable square" style='margin-left:10px;' ng-repeat="item in dragDrop.list2 track by $index" data-drop="true"
+                         ng-model='dragDrop.list2' jqyoui-droppable="{index: {{$index}}}">
+                        <div class="btn btn-info btn-draggable square" data-drag="{{item.drag}}"
+                             data-jqyoui-options="{revert: 'invalid'}" ng-model="dragDrop.list2"
+                             jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false, onStart:'dragDrop.startCallback(item, $index)', onStop: 'dragDrop.stopCallback', onDrag: 'dragDrop.dragCallback'}"
+                             ng-hide="!item.title">{{item.title}}
+                        </div>
+                    </div>
 
 
+                    <!--<span class="square red" data-drag="true" jqyoui-draggable></span>-->
                 </div>
 
 
             </div>
 
-        </div>
+            <!--<div class="drop-zone">-->
+            <!--<ul>-->
+            <!--<li class="slot" style='margin-left:10px;' ng-repeat="image in dragDrop.dropTargets">-->
+            <!--<div class="btn btn-droppable" data-drop="true" ng-model='dragDrop.list1'-->
+            <!--jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback',onOver: 'dragDrop.overCallback', onOut: 'dragDrop.outCallback'}">-->
+            <!--<div class="btn btn-info btn-draggable" ng-show="1>0 || dragDrop.list1[$index].title"-->
+            <!--data-drag="{{dragDrop.list1[$index].drag}}"-->
+            <!--data-jqyoui-options="{revert: 'invalid'}" ng-model="dragDrop.list1"-->
+            <!--jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">-->
+            <!--{{dragDrop.list1[$index].title}}-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
 
 
-        <div class="game-controls blue">
-            <p>controls</p>
+            <div class="game-controls blue">
+                <p>controls</p>
+            </div>
+
         </div>
+
     </div>
+
+
 </div>
 
 

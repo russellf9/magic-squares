@@ -87,7 +87,7 @@
     border:1px solid black;
 }
 
-.square {
+.square-block {
     display: inline-block;
     text-align: center;
     font-weight: bold;
@@ -97,7 +97,45 @@
     min-height: 75px;
 }
 
+.btn-droppable {
+    padding: 0;
+    /*margin: 5px;*/
+    border:1px #999 solid;
+    z-index: -1;
+
+    width:75px;
+    height:75px;
+
+
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-draggable {
+    z-index: 1;
+}
+
+.square {
+    width: 75px;
+    min-height: 75px;
+}
+
+
+.emage { max-height: 50px; }
+
 .slot {
+    display: inline-block;
+    width:75px;
+    height:75px;
+    /*border: none;*/
+    border: dashed 1px darkgreen
+}
+
+.slot-block {
     margin-right:5px;
     margin-top:5px;
     width:75px;
