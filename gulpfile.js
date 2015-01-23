@@ -112,9 +112,9 @@ gulp.task('compress', function() {
 });
 
 // Watch Files For Changes
-// Note use the maxListeners to avoid error
+// Note use the maxListeners to avoid error - `possible EventEmitter memory leak detected`
 gulp.task('watch', function() {
-	gulp.watch('app/js/**/*.js', { maxListeners: 999 }, ['lint', 'jscs', 'build']);
+	gulp.watch('app/js/**/*.js', {maxListeners: 999}, ['lint', 'jscs', 'build']);
 });
 
 // necessary to create a pipe to launch the relaod

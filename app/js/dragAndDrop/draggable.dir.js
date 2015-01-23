@@ -14,34 +14,40 @@ angular.module('app').directive('draggable', ['$rootScope', function($rootScope)
             }
         },
         link: function(scope, element, attrs) {
-            console.log('10:34 draggable: ', element);
-            angular.element(element).attr('draggable', 'true');
+            console.log('set the draggable attribute - draggable: ', element.attr('draggable'));
+
+            //angular.element(element).attr('draggable', 'true');
+            // remove the draggable attribute if set to force
+            if (!element.attr('draggable') || element.attr('draggable') === 'false') {
+                angular.element(element).removeAttr('draggable');
+            }
 
 
             var el = angular.element(element);
 
             if (!scope.id) {
-                scope.id = el.text();
+                scope.id = 'drag-' + el.text();
             }
             angular.element(element).attr('id', scope.id);
 
-            element.bind('dragstart', function(event) {
+            scope.bindDragStart = function() {
+                element.bind('dragstart', function(event) {
+                    console.log('drag start - e: ', event);
+                    event.stopPropagation();
+                    scope.dragStart();
+                    event.originalEvent.dataTransfer.effectAllowed = 'move';
+                    event.originalEvent.dataTransfer.setData('text', scope.id); // just test for now...
+                });
+            };
 
-                console.log('e: ', event);
-
-                event.stopPropagation();
-
-                scope.dragStart();
-
-                event.originalEvent.dataTransfer.effectAllowed = 'move';
-
-                event.originalEvent.dataTransfer.setData('text', scope.id); // just test for now...
-
-            });
-
-            element.bind('dragend', function(e) {
-                $rootScope.$emit('DRAG.END');
-            });
+            scope.bindDragEnd = function() {
+                element.bind('dragend', function(e) {
+                    $rootScope.$emit('DRAG.END');
+                });
+            };
+            // set to draggable item
+            scope.bindDragStart();
+            scope.bindDragEnd();
         }
     }
 }]);
