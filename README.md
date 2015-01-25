@@ -21,6 +21,13 @@ I'll be using [Gulp](www.gulpjs.com) as the build tool as choice.
 
 Eventually, it would be nice to use [Cordova](http://cordova.apache.org) and or [Ionic](http://ionicframework.com) to make an IOS or Android app.
 
+
+**Screenshot**
+
+![Magic Numbers](/design/magic_square_140125.png?raw=true "Magic Square 140125")
+
+
+
 **Drag and Drop**
 I'm using the Drag and Drop from [angular-dragdrop](https://github.com/codef0rmer/angular-dragdrop)
 
