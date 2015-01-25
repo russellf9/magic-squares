@@ -5,13 +5,15 @@
  */
 
 
-angular.module('app').service('Evaluate', ['_', '$q', function(_, $q) {
+angular.module('app').service('Evaluate', ['_', '$q', '$rootScope', function(_, $q, $rootScope) {
 
     var _numberOfSquares = 9,
         _grandTotal = 45,
         _selectedItems = [],
+    // true if a correct solution has been found
         _allCorrect = false,
-        _correct = {};
+        _selected = 0,
+        _gameValues = {};
 
 
     return {
@@ -24,38 +26,62 @@ angular.module('app').service('Evaluate', ['_', '$q', function(_, $q) {
         magicNumber: function() {
             return _grandTotal / 3;
         },
+        setSelectedItems: function(value) {
+            _selectedItems = value;
+        },
         selectedItems: function() {
             return _selectedItems;
         },
         allCorrect: function() {
             return _allCorrect;
         },
-        getCorrect: function() {
-            return _correct;
+        getUpdateValues: function() {
+            return _gameValues;
         },
+        getSelected: function() {
+            return _selected;
+        },
+        watchSelectedItems: function() {
+            var self = this;
+            $rootScope.$watchCollection(this.selectedItems, function(newValue, oldValue, scope) {
+                if (newValue && newValue !== oldValue) {
+                    console.log('SERVICE WATCH selectedItems: ', newValue);
+                    self.update();
+                }
+            })
+        },
+        /**
+         * Updates the game values
+         */
         update: function() {
-            _allCorrect = false;
-            var selectedSquares = [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                total = _.reduce(_selectedItems, function(sum, item) {
-                    // console.log('item: ', item);
 
+            // in the `selectedSquares` array each element represents a square on the board,
+            // and is populated with the numerical value of drag item if present
+            var selectedSquares = [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            // `complete` is true if all the `drop` items contain a `drag` item
+                complete = false,
+                selected = 0,
+            // 'total` is the sum of the values in each `drop` item
+                total = _.reduce(_selectedItems, function(sum, item) {
                     return sum + (item && item.hasOwnProperty('title') ? Number(item.title) : 0); //Number(item.title);
                 }, 0);
 
-            console.log('total: ', total);
+            // `selected` is the total number of `drop` items which have been populated with a `drag` item
+            selected = _.reduce(_selectedItems, function(sum, item) {
+                return sum + (item && item.hasOwnProperty('title') ? 1 : 0);
+            }, 0);
 
-//        console.log('Update | total: ', total);
-            _.forEach(_selectedItems, function(item, key) {
-                console.log(key, ' | item: ', item);
-
+            // add the numerical value to the corresponding index in the `selectedSquares` array from the current `selectedItems`
+            _.forEach(this.selectedItems(), function(item, key) {
                 selectedSquares[key] = (item && item.hasOwnProperty('title') ? Number(item.title) : 0);
             });
 
-            console.log('selectedSquares: ', selectedSquares);
+            //console.log('+++ update selectedSquares: ', selectedSquares);
             if (total === _grandTotal) {
-                console.log('COMPLETED!');
+                complete = true;
             }
 
+            // evaluate each row, column and diagonal in turn
             var row1 = selectedSquares[0] + selectedSquares[1] + selectedSquares[2],
                 row2 = selectedSquares[3] + selectedSquares[4] + selectedSquares[5],
                 row3 = selectedSquares[6] + selectedSquares[7] + selectedSquares[8],
@@ -84,15 +110,10 @@ angular.module('app').service('Evaluate', ['_', '$q', function(_, $q) {
 
                 _allCorrect = rowsCorrect && columnsCorrect && diagonalsCorrect;
 
-            console.log('COMPLETED! correct??? ', _allCorrect);
-
-            _correct = {correct:_allCorrect, squares:selectedSquares};
-
-
-            return _allCorrect;
+            _gameValues = {correct: _allCorrect, squares: selectedSquares, selected: selected, complete: complete};
         }
-
     }
 }]);
+
 
 

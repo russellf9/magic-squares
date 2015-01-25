@@ -1,7 +1,18 @@
 /* http://snook.ca/archives/html_and_css/font-size-with-rem */
 html { font-size: 62.5%; }
 body { font-size: 14px; font-size: 1.4rem;  } /* =14px */
-h1 { font-size: 48px; font-size: 4.8rem;  } /* =24px */
+h1 { font-size: 48px; font-size: 4.8rem;  } /* =48px */
+h2 { font-size: 42px; font-size: 4.2rem;  } /* =42px */
+h3 { font-size: 36px; font-size: 3.6rem;  } /* =36px */
+h4 { font-size: 32px; font-size: 3.2rem;  } /* =32px */
+h5 { font-size: 24px; font-size: 2.4rem;  } /* =24px */
+h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
+
+
+.center-text {
+    width: 100%;
+    text-align: center;
+}
 
 .game-container {
     position: absolute;
