@@ -17,8 +17,11 @@
             <div class="drag-drop" ng-controller="DragDrop as dragDrop">
 
                 <div class="drop-zone">
+
                     <ul id="triple" class="drop-board">
+
                         <li class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">
+
                             <div class="btn btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
                                 jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index)'}">
                                 <div class="btn btn-info square btn-draggable" ng-show="dragDrop.selectedItems[$index].title"
@@ -29,6 +32,18 @@
                                 </div>
                             </div>
                         </li>
+                    </ul>
+
+                </div>
+
+                <div class="drop-zone-overlay">
+                    <ul id="single" class="drop-board">
+
+                        <li class="drop-display" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
+                             <span class="pull-left" style="margin-left: -20px;">{{drop.value}}</span> <span class="pull-right">{{drop.value}}</span>
+                        </li>
+
+                    <!--ng-options="a.id as a.name for a in artworkArr | arrayWithoutSelf:artwork.$id "-->
                     </ul>
                 </div>
 
@@ -50,6 +65,12 @@
 
 
             <div class="game-controls">
+                <form style="margin-top: 5px; margin-left: 10px;">
+                    <button style="display: inline" class="btn btn-default btn-lg" type="submit" ng-click="">Submit</button>
+                    <button style="display: inline; margin-left: 10px;" class="btn btn-default btn-lg" type="submit" ng-click="">Clear</button>
+                </form>
+
+
             </div>
 
         </div>

@@ -17,6 +17,12 @@
                 self.complete = newValue.complete;
             }
         });
+
+
+        this.mod3 = function(elm) {
+            console.log('mod' ,elm);
+            return !(elm.value % 3);
+        }
     }]);
 }());
 

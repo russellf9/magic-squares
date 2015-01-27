@@ -15,7 +15,7 @@
     }
 
     angular
-        .module('app', ['ngRoute', 'ngAnimate', 'ngDragDrop'])
+        .module('app', ['ngRoute', 'ngAnimate', 'ngDragDrop', 'angular.filter'])
         .config(config)
         .run(['_', function(_) {
         }])
