@@ -3,11 +3,14 @@
         <div class="game-container" ng-controller="Master as master">
             <div class="instructions" ng-controller="Instructions as instructions">
                 <span ng-if='!master.complete'>
-                    <h6 class="center-text">Magic Square Puzzle</h6>
-                    <p class="center-text">{{instructions.instructions}}</p>
+                    <h4 class="center-text"><strong>Magic Square Puzzle</strong></h4>
+                    <h6 class="center-text">{{instructions.instructions}}</h6>
                 </span>
-                <h6 class="center-text" ng-if="master.allCorrect">Well done all correct!</h6>
-                <h6 class="center-text" ng-if='master.complete && !master.allCorrect'>Try again</h6>
+                <span >
+                    <h4 style="padding-top:25px" class="center-text" ng-if="master.allCorrect">Well done all correct!</h4>
+                <h4 style="padding-top:25px" class="center-text" ng-if='master.complete && !master.allCorrect'>Try again!</h4>
+                </span>
+
             </div>
 
 

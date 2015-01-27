@@ -63,7 +63,7 @@
          * @param event
          * @param ui
          */
-        this.outCallback = function(event, ui) {
+        this.outCallback = function(event, ui, index) {
             var currentDragItem = Game.selectedItems()[index];
             if (currentDragItem && currentDragItem.hasOwnProperty('title')) {
                 console.log('DragDrop::outCallback  - hey, good bye to: ', currentDragItem.title);

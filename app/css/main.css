@@ -18,10 +18,12 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     position: absolute;
     top: 0;
     left: 0;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 
     border: solid 1px #222;
+
+    background-color: rgba(100,100,100,0.05);
 }
 
 .instructions {
@@ -29,31 +31,31 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     top: 0;
     left: 0;
     margin: 0;
-    width: 500px;
-    height: 45px;
+    width: 600px;
+    height: 100px;
 
-    /*background-color: rgba(0,255,0,0.1);*/
+    /*background-color: rgba(100,100,100,0.05);*/
 }
 
 .drag-drop {
     position: absolute;
-    top: 45px;
+    top: 100px;
     left: 0;
-    width: 500px;
-    height: 405px;
+    width: 600px;
+    height: 425px;
 
-    /*border: solid 1px darkgreen;*/
+    /*border: solid 3px darkgreen;*/
 }
 
 .drop-zone {
     position: absolute;
     top: 0;
     left: 0;
-    width: 500px;
+    width: 600px;
     height: 245px;
 
     /*border: solid 1px slategrey;*/
-    /*background-color: rgba(0,255,0,0.1);*/
+    /*background-color: rgba(100,100,100,0.05);*/
 }
 
 .drag-home {
@@ -62,9 +64,10 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     top: 245px;
     left: 0;
 
-    width: 500px;
+    width: 600px;
     height: 160px;
     /* quick positioning hack */
+    padding-top: 5px;
     padding-left: 35px;
 
     /*border: solid 1px gold;*/
@@ -73,11 +76,13 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
 .game-controls {
     position: absolute;
     left: 0;
-    top: 450px;
-    width: 500px;
-    height: 50px;
+    bottom: 0;
+    width: 600px;
+    height: 75px;
 
     /*border: solid 2px gold;*/
+
+    background-color: rgba(0,75,125,0.05);
 }
 
 
