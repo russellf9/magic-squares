@@ -69,6 +69,13 @@
                 console.log('DragDrop::outCallback  - hey, good bye to: ', currentDragItem.title);
             }
         };
+        /**
+         *
+         * @param value
+         */
+        this.getRowTotal = function(value) {
+            return Game.getRowTotal(value);  // 0, 1, 3
+        };
     }]);
 
 }());

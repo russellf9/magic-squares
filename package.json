@@ -31,6 +31,7 @@
     "gulp-notify": "^2.1.0",
     "gulp-rev": "^3.0.0",
     "gulp-usemin": "^0.3.11",
+    "gulp-watch": "^4.1.0",
     "jshint-stylish": "^1.0.0"
   }
 }

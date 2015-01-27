@@ -18,11 +18,10 @@
             }
         });
 
-
+        // a utility which returns every third element
         this.mod3 = function(elm) {
-            console.log('mod' ,elm);
             return !(elm.value % 3);
-        }
+        };
     }]);
 }());
 

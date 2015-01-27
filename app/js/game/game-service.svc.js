@@ -13,6 +13,14 @@
         // true if a correct solution has been found
             _allCorrect = false,
             _gameValues = {},
+            _row1 = 0,
+            _row2 = 0,
+            _row3 = 0,
+            _column1 = 0,
+            _column2 = 0,
+            _column3 = 0,
+            _diagonal1 = 0,
+            _diagonal2 = 0,
 
             game = {
                 numberOfSquares: function() {
@@ -35,6 +43,31 @@
                 },
                 getUpdateValues: function() {
                     return _gameValues;
+                },
+                /**
+                 * 0,3,6
+                 * @param value
+                 */
+                getRowTotal: function(value) {
+                    var total = 0;
+                    switch (value) {
+                        case 0:
+                        {
+                            total = _row1;
+                            break;
+                        }
+                        case 3:
+                        {
+                            total = _row2;
+                            break;
+                        }
+                        case 6:
+                        {
+                            total = _row3;
+                            break;
+                        }
+                    }
+                    return total;
                 },
                 watchSelectedItems: function() {
                     var self = this;
@@ -75,27 +108,27 @@
                     }
 
                     // evaluate each row, column and diagonal in turn
-                    var row1 = selectedSquares[0] + selectedSquares[1] + selectedSquares[2],
-                        row2 = selectedSquares[3] + selectedSquares[4] + selectedSquares[5],
-                        row3 = selectedSquares[6] + selectedSquares[7] + selectedSquares[8],
+                    _row1 = selectedSquares[0] + selectedSquares[1] + selectedSquares[2],
+                        _row2 = selectedSquares[3] + selectedSquares[4] + selectedSquares[5],
+                        _row3 = selectedSquares[6] + selectedSquares[7] + selectedSquares[8],
 
-                        column1 = selectedSquares[0] + selectedSquares[3] + selectedSquares[6],
-                        column2 = selectedSquares[1] + selectedSquares[4] + selectedSquares[7],
-                        column3 = selectedSquares[2] + selectedSquares[5] + selectedSquares[8],
+                        _column1 = selectedSquares[0] + selectedSquares[3] + selectedSquares[6],
+                        _column2 = selectedSquares[1] + selectedSquares[4] + selectedSquares[7],
+                        _column3 = selectedSquares[2] + selectedSquares[5] + selectedSquares[8],
 
-                        diagonal1 = selectedSquares[0] + selectedSquares[4] + selectedSquares[8],
-                        diagonal2 = selectedSquares[2] + selectedSquares[4] + selectedSquares[6],
+                        _diagonal1 = selectedSquares[0] + selectedSquares[4] + selectedSquares[8],
+                        _diagonal2 = selectedSquares[2] + selectedSquares[4] + selectedSquares[6];
 
-                        row1Correct = (row1 === this.magicNumber()),
-                        row2Correct = (row2 === this.magicNumber()),
-                        row3Correct = (row3 === this.magicNumber()),
+                    var row1Correct = (_row1 === this.magicNumber()),
+                        row2Correct = (_row2 === this.magicNumber()),
+                        row3Correct = (_row3 === this.magicNumber()),
 
-                        column1Correct = (column1 === this.magicNumber()),
-                        column2Correct = (column2 === this.magicNumber()),
-                        column3Correct = (column3 === this.magicNumber()),
+                        column1Correct = (_column1 === this.magicNumber()),
+                        column2Correct = (_column2 === this.magicNumber()),
+                        column3Correct = (_column3 === this.magicNumber()),
 
-                        diagonal1Correct = (diagonal1 === this.magicNumber()),
-                        diagonal2Correct = (diagonal2 === this.magicNumber()),
+                        diagonal1Correct = (_diagonal1 === this.magicNumber()),
+                        diagonal2Correct = (_diagonal2 === this.magicNumber()),
 
                         rowsCorrect = row1Correct && row2Correct && row3Correct,
                         columnsCorrect = column1Correct && column2Correct && column3Correct,
@@ -103,7 +136,12 @@
 
                         _allCorrect = rowsCorrect && columnsCorrect && diagonalsCorrect;
 
-                    _gameValues = {correct: _allCorrect, squares: selectedSquares, selected: selected, complete: complete};
+                    _gameValues = {
+                        correct: _allCorrect,
+                        squares: selectedSquares,
+                        selected: selected,
+                        complete: complete
+                    };
                 }
             };
         // trigger the watch internally

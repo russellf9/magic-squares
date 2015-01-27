@@ -40,7 +40,7 @@
                     <ul id="single" class="drop-board">
 
                         <li class="drop-display" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
-                             <span class="pull-left" style="margin-left: -20px;">{{drop.value}}</span> <span class="pull-right">{{drop.value}}</span>
+                             <span class="pull-left" style="margin-left: -20px;">{{dragDrop.getRowTotal(drop.value)}}</span> <span class="pull-right">{{dragDrop.getRowTotal(drop.value)}}</span>
                         </li>
 
                     <!--ng-options="a.id as a.name for a in artworkArr | arrayWithoutSelf:artwork.$id "-->

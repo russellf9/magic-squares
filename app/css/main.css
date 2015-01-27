@@ -178,7 +178,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
 }
 /*hack display for the totals*/
 .drop-display {
-    border:1px #999 solid;
+    /*border:1px #999 solid;*/
     margin-top: 3px;
     margin-bottom: 3px;
 }
@@ -235,9 +235,9 @@ ul{
     height: inherit;
     margin-bottom:20px;
     /*overflow:hidden;*/
-    border-left:1px solid #a32d00;
-    border-right:1px solid #a32d00;
-    border-bottom:1px solid #a32d00;
+    /*border-left:1px solid #a32d00;*/
+    /*border-right:1px solid #a32d00;*/
+    /*border-bottom:1px solid #a32d00;*/
 }
 li{
     padding: 0;
