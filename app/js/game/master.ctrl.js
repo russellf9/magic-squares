@@ -1,22 +1,23 @@
-'use strict';
+(function() {
+    'use strict';
 
-//controller for single project view
-angular.module('app').controller('Master', ['Game', function(Game) {
-    console.log('Hi from the Master!');
+    // the `highest` controller the app
+    angular.module('app').controller('Master', ['Game', '$scope', function(Game, $scope) {
+        var self = this;
 
-    var self = this;
+        this.allCorrect = false;
 
-    this.allCorrect = false;
+        this.selected = 0;
 
-    this.selected = 0;
+        // watches for any change in the `game state`
+        $scope.$watch(Game.getUpdateValues, function(newValue, oldValue) {
+            if (newValue && newValue !== oldValue) {
+                self.allCorrect = Boolean(newValue.correct);
+                self.selected = newValue.selected;
+                self.complete = newValue.complete;
+            }
+        });
+    }]);
+}());
 
-    // watches for any change in the `game state`
-    $scope.$watch(Game.getUpdateValues, function(newValue, oldValue, scope) {
-        if (newValue && newValue !== oldValue) {
-            self.allCorrect = Boolean(newValue.correct);
-            self.selected = newValue.selected;
-            self.complete = newValue.complete;
-        }
-    });
-}]);
 

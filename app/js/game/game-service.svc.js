@@ -42,7 +42,7 @@
                         if (newValue && newValue !== oldValue) {
                             self.update();
                         }
-                    })
+                    });
                 },
                 /**
                  * Updates the game values `_gameValues`
