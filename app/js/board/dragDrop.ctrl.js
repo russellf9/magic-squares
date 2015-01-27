@@ -61,9 +61,11 @@ angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Evalua
      * @param event
      * @param ui
      */
-    this.outCallback = function(event, ui, index, dragIndex, drop) {
-        console.log('DragDrop::outCallback - A I`m not, hehe good bye to: ', self.draggedTitle, ' ?'); // not always right!
+    this.outCallback = function(event, ui, index) {
         var currentDragItem = Evaluate.selectedItems()[index];
-        console.log('DragDrop::outCallback  - hey, good bye to: ', currentDragItem.title);
-    };
+        if (currentDragItem && currentDragItem.hasOwnProperty('title')) {
+            console.log('DragDrop::outCallback  - hey, good bye to: ', currentDragItem.title);
+        }
+    }
 }]);
+

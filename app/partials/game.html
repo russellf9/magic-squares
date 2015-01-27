@@ -14,7 +14,7 @@
                     <ul id="triple" class="drop-board">
                         <li class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">
                             <div class="btn btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
-                                jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index, data-drag)'}">
+                                jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index)'}">
                                 <div class="btn btn-info square btn-draggable" ng-show="dragDrop.selectedItems[$index].title"
                                      data-drag="{{dragDrop.selectedItems[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}"
                                      ng-model="dragDrop.selectedItems"

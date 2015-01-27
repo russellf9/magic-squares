@@ -4,12 +4,10 @@
 
     function config($routeProvider, $locationProvider) {
         $locationProvider.hashPrefix('!');
-        // routes
+        // routes ( for the local app this is required )
         $routeProvider
             .when('/', {
-                templateUrl: './partials/game.html',
-                controller: 'MainController',
-                controllerAs: 'main'
+                templateUrl: './partials/game.html'
             })
             .otherwise({
                 redirectTo: '/'
@@ -18,8 +16,8 @@
 
     angular
         .module('app', ['ngRoute', 'ngAnimate', 'ngDragDrop'])
-        .config(config).
-        run(['_', function(_) {
+        .config(config)
+        .run(['_', function(_) {
         }])
 // I provide an injectable (and exteded) version of the underscore / lodash lib.
         .factory(
