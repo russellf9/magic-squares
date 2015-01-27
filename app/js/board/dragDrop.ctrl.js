@@ -1,7 +1,7 @@
 'use strict';
 
 //controller for single project view
-angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Game', function($scope, $timeout, _, Game) {
+angular.module('app').controller('DragDrop', ['Game', function(Game) {
 
     var self = this;
 
@@ -39,7 +39,7 @@ angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Game',
      * @param ui
      * @param index
      */
-    this.dropCallback = function(event, ui, index, dragIndex) {
+    this.dropCallback = function(event, ui, index) {
         var currentDragItem = Game.selectedItems()[index];
         console.log('DragDrop::dropCallback  - hey, you dumped me :-(', currentDragItem.title);
     };
@@ -61,7 +61,7 @@ angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Game',
      * @param event
      * @param ui
      */
-    this.outCallback = function(event, ui, index) {
+    this.outCallback = function(event, ui) {
         var currentDragItem = Game.selectedItems()[index];
         if (currentDragItem && currentDragItem.hasOwnProperty('title')) {
             console.log('DragDrop::outCallback  - hey, good bye to: ', currentDragItem.title);

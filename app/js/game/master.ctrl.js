@@ -1,8 +1,8 @@
 'use strict';
 
 //controller for single project view
-angular.module('app').controller('Master', ['$scope', '$rootScope', 'Game', function($scope, $rootScope, Game) {
-    console.log('hi from the Master!');
+angular.module('app').controller('Master', ['Game', function(Game) {
+    console.log('Hi from the Master!');
 
     var self = this;
 

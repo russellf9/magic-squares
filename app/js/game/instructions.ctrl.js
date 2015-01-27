@@ -5,4 +5,3 @@ angular.module('app').controller('Instructions', ['Game', 'Text', function(Game,
 
     this.instructions = Text.instructions + Game.magicNumber() + '.';
 }]);
-
