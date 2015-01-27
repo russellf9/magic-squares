@@ -2,7 +2,10 @@
     <div class="col-md-7">
         <div class="game-container" ng-controller="Master as master">
             <div class="instructions" ng-controller="Instructions as instructions">
-                <h6 class="center-text" ng-if='!master.complete'>Magic Square Puzzle</h6>
+                <span ng-if='!master.complete'>
+                    <h6 class="center-text">Magic Square Puzzle</h6>
+                    <p class="center-text">{{instructions.instructions}}</p>
+                </span>
                 <h6 class="center-text" ng-if="master.allCorrect">Well done all correct!</h6>
                 <h6 class="center-text" ng-if='master.complete && !master.allCorrect'>Try again</h6>
             </div>

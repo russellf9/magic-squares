@@ -1,11 +1,11 @@
 'use strict';
 
 //controller for single project view
-angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Evaluate', function($scope, $timeout, _, Evaluate) {
+angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Game', function($scope, $timeout, _, Game) {
 
     var self = this;
 
-    this.numberOfSquares = Evaluate.numberOfSquares();
+    this.numberOfSquares = Game.numberOfSquares();
 
     this.dropTargets = [];
 
@@ -13,7 +13,7 @@ angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Evalua
 
     this.selectedItems = [];
 
-    Evaluate.setSelectedItems(this.selectedItems);
+    Game.setSelectedItems(this.selectedItems);
 
     for (var i = 0; i < this.numberOfSquares; i++) {
         this.dropTargets.push({value: i});
@@ -40,7 +40,7 @@ angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Evalua
      * @param index
      */
     this.dropCallback = function(event, ui, index, dragIndex) {
-        var currentDragItem = Evaluate.selectedItems()[index];
+        var currentDragItem = Game.selectedItems()[index];
         console.log('DragDrop::dropCallback  - hey, you dumped me :-(', currentDragItem.title);
     };
 
@@ -62,7 +62,7 @@ angular.module('app').controller('DragDrop', ['$scope', '$timeout', '_', 'Evalua
      * @param ui
      */
     this.outCallback = function(event, ui, index) {
-        var currentDragItem = Evaluate.selectedItems()[index];
+        var currentDragItem = Game.selectedItems()[index];
         if (currentDragItem && currentDragItem.hasOwnProperty('title')) {
             console.log('DragDrop::outCallback  - hey, good bye to: ', currentDragItem.title);
         }
