@@ -46,11 +46,9 @@
                 getUpdateValues: function() {
                     return _gameValues;
                 },
-
                 getDragItems: function() {
                     return _dragItems;
                 },
-
                 getDropItems: function() {
                     return _dropItems;
                 },
@@ -59,6 +57,7 @@
                  * @param value
                  */
                 getRowTotal: function(value) {
+                    // TODO - should really convert [0,3,6] to [1,2,3]
                     var total = 0;
                     switch (value) {
                         case 0:
@@ -246,13 +245,9 @@
         // trigger the watch internally
         game.watchSelectedItems();
 
+        // sets the initial values for the `drag` and `drop` items
+        game.init();
+
         return game;
     }]);
 }());
-
-
-
-
-
-
-

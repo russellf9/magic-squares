@@ -7,15 +7,16 @@
 
         var self = this;
 
+        // the `drop` items
         this.dropTargets = Game.getDropItems();
 
-        // the drag items
+        // the `drag` items
         this.dragItems = Game.getDragItems();
 
+        // the `drag` items which have been `dropped`
         this.selectedItems = Game.selectedItems();
 
-        Game.init();
-
+        // callbacks
         this.startCallback = function(event, ui, title) {
             console.log('DragDrop::startCallback  You started dragging: ' + title.title);
             self.draggedTitle = title.title;
@@ -56,6 +57,7 @@
          * Evoked when a `drag` item has been removed from a `drop` item
          * @param event
          * @param ui
+         * @param index
          */
         this.outCallback = function(event, ui, index) {
             var currentDragItem = Game.selectedItems()[index];
@@ -64,29 +66,32 @@
             }
         };
         /**
-         *
-         * @param value
+         * returns the total of the selected items in the selected row
+         * @param value a number which represents the row
+         * @returns {number}
          */
         this.getRowTotal = function(value) {
+            //console.log('getRowTotal: ',value, ' - ', Game.getRowTotal(value));
             return Game.getRowTotal(value);
         };
         /**
-         *
-         * @param value
+         * returns the total of the selected items in the selected column
+         * @param value the column number
+         * @returns {number}
          */
         this.getColumnTotal = function(value) {
             return Game.getColumnTotal(value);
         };
         /**
-         *
-         * @param value
-         * @returns {*}
+         * returns the total of the selected items in the selected diagonal
+         * @param value the row number
+         * @returns {number}
          */
         this.getDiagonalTotal = function(value) {
             return Game.getDiagonalTotal(value);
         };
         /**
-         *
+         * returns the total of the selected items in the selected diagonal
          * @param value
          * @returns {number}
          */
