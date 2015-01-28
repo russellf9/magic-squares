@@ -16,7 +16,8 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     gulpif = require('gulp-if'),
     livereload = require('gulp-livereload'),
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+    git = require('gulp-git');
 
 // tasks
 gulp.task('lint', function() {
@@ -109,6 +110,26 @@ gulp.task('compress', function() {
     gulp.src('app/js/**/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('test'))
+});
+
+// Create a new git branch
+// Uses the default name as: dev-{YYMMDD}
+gulp.task('branch', function() {
+    var today = new Date(),
+        month = String((today.getMonth() + 1 >= 10) ? (today.getMonth() + 1) : ('0' + String(today.getMonth() + 1))),
+        date = String((today.getDate() >= 10) ? (today.getDate()) : ('0' + (today.getDate()))),
+        year = String(today.getFullYear()),
+        shortYear = year.substr(year.length - 2, 2),
+        dateString = shortYear + month + date,
+        branchName = 'dev-' + dateString;
+
+    git.checkout(branchName, {args: '-b'}, function(err) {
+        if (err) {
+            throw err;
+        } else {
+            console.log('Git branch - ', branchName, ' created.');
+        }
+    });
 });
 
 // Watch Files For Changes
