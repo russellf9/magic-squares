@@ -94,9 +94,7 @@
             var reverse = (value === 0) ? 1: 0;
             return Game.getDiagonalTotal(reverse);
         };
-
     }]);
-
 }());
 
 

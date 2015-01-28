@@ -89,8 +89,8 @@ gulp.task('connectDist', function() {
         livereload: true
     });
 });
-//
-gulp.task('usemin', ['clean'], function(cb) {
+// need to add {maxListeners: 999},
+gulp.task('usemin', ['clean'],  function(cb) {
 
     var condition = 'app.js';
 
@@ -127,7 +127,7 @@ gulp.task('watch-build', function() {
 
 // default task
 gulp.task('default',
-    ['connect', 'watch', 'watch-build']
+    ['lint', 'jscs', 'connect', 'watch', 'watch-build']
 );
 // build task
 // TODO a bit hackey need a better way of moving the partials
