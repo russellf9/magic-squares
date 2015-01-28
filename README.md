@@ -24,12 +24,14 @@ Eventually, it would be nice to use [Cordova](http://cordova.apache.org) and or 
 
 **Screenshot**
 
-![Magic Numbers](/design/magic_square_140125.png?raw=true "Magic Square 140125")
+![Magic Numbers](/design/magic_square_140128.png?raw=true "Magic Square 140128")
 
 
 
 **Drag and Drop**
 I'm using the Drag and Drop from [angular-dragdrop](https://github.com/codef0rmer/angular-dragdrop)
+
+This works really well, you just have to remember to install the required dependencies - [jquery-ui.css], and [jquery-ui.js]. (Will need to check that was all.)
 
 **Coding Standards**
 
