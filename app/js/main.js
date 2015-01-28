@@ -15,11 +15,11 @@
     }
 
     angular
-        .module('app', ['ngRoute', 'ngAnimate', 'ngDragDrop', 'angular.filter'])
+        .module('app', ['ngRoute', 'ngAnimate', 'ngDragDrop', 'angular.filter', 'ngTouch'])
         .config(config)
         .run(['_', function(_) {
         }])
-// I provide an injectable (and exteded) version of the underscore / lodash lib.
+// I provide an injectable (and extended) version of the underscore / lodash lib.
         .factory(
         '_',['$window',
         function($window) {
