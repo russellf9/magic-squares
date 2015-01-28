@@ -92,7 +92,7 @@
             return Game.getDiagonalTotal(value);
         };
         /**
-         * 
+         *
          * @param value
          * @returns {number}
          */
