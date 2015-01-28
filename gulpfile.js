@@ -121,7 +121,8 @@ gulp.task('branch', function() {
         year = String(today.getFullYear()),
         shortYear = year.substr(year.length - 2, 2),
         dateString = shortYear + month + date,
-        branchName = 'dev-' + dateString;
+        // branchName = 'dev-' + dateString,
+        branchName = dateString;
 
     git.checkout(branchName, {args: '-b'}, function(err) {
         if (err) {
