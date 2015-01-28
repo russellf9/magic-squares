@@ -32,19 +32,19 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     left: 0;
     margin: 0;
     width: 600px;
-    height: 80px;
+    height: 75px;
 
     background-color: rgba(100,100,100,0.05);
 }
 
 .drag-drop {
     position: absolute;
-    top: 80px;
+    top: 75px;
     left: 0;
     width: 600px;
-    height: 460px;
+    height: 480px;
 
-    border: solid 3px darkgreen;
+    /*border: solid 3px darkgreen;*/
 }
 
 .drop-zone {
@@ -53,9 +53,9 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     top: 0;
     left: 0;
     width: 600px;
-    height: 270px;
+    height: 290px;
 
-    border: solid 1px slategrey;
+    /*border: solid 1px slategrey;*/
     background-color: rgba(100,100,100,0.05);
 }
 
@@ -65,9 +65,9 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     top: 0;
     left: 0;
     width: 600px;
-    height: 270px;
+    height: 280px;
 
-    border: solid 1px darkred;
+    /*border: solid 1px darkred;*/
 }
 
 
@@ -75,16 +75,16 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
 .drag-home {
     position: absolute;
 
-    top: 270px;
+    top: 290px;
     left: 0;
 
     width: 600px;
-    height: 185px;
+    height: 190px;
     /* quick positioning hack */
-    padding-top: 5px;
+    padding-top: 8px;
     padding-left: 35px;
 
-    border: solid 1px gold;
+    /*border: solid 2px gold;*/
 }
 
 .game-controls {
@@ -92,7 +92,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     left: 0;
     bottom: 0;
     width: 600px;
-    height: 55px;
+    height: 45px;
 
     /*border: solid 2px gold;*/
 
@@ -153,7 +153,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     padding-top: 3px;
     padding-left: 22px;
     /*padding-right: 10px;*/
-    margin-top: 10px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 
@@ -181,6 +181,17 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     /*border:1px #999 solid;*/
     margin-top: 3px;
     margin-bottom: 3px;
+}
+
+.row-indicator {
+    /*border:1px #229 solid;*/
+    height: 100%;
+    /* bit hacky now */
+    padding-top: 20px;
+}
+
+.row-indicator-left {
+    margin-left: -19px;
 }
 
 
