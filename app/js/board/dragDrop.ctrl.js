@@ -76,6 +76,30 @@
         this.getRowTotal = function(value) {
             return Game.getRowTotal(value);  // 0, 1, 3
         };
+        /**
+         *
+         * @param value
+         */
+        this.getColumnTotal = function(value) {
+            return Game.getColumnTotal(value);  // 0, 3, 6
+        };
+        /**
+         *
+         * @param value
+         * @returns {*}
+         */
+        this.getDiagonalTotal = function(value) {
+            return Game.getDiagonalTotal(value);
+        };
+        /**
+         * 
+         * @param value
+         * @returns {number}
+         */
+        this.getDiagonalTotalReverse = function(value) {
+            var reverse = (value === 0) ? 1: 0;
+            return Game.getDiagonalTotal(reverse);
+        }
     }]);
 
 }());

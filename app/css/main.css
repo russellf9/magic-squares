@@ -34,7 +34,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     width: 600px;
     height: 75px;
 
-    background-color: rgba(100,100,100,0.05);
+    /*background-color: rgba(100,100,100,0.05);*/
 }
 
 .drag-drop {
@@ -56,23 +56,42 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     height: 290px;
 
     /*border: solid 1px slategrey;*/
-    background-color: rgba(100,100,100,0.05);
+    /*background-color: rgba(100,100,100,0.05);*/
 }
 
 .drop-zone-overlay {
-    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
     width: 600px;
-    height: 280px;
+    height: 290px;
 
     /*border: solid 1px darkred;*/
 }
 
+.drop-zone-overlay-one {
+    z-index: -1;
+    /*border: solid 1px darkred;*/
+}
+
+.drop-zone-overlay-two {
+    z-index: -2;
+
+    /*border: solid 1px darkblue;*/
+}
+
+.drop-zone-overlay-three {
+    z-index: -3;
+
+    /*border: solid 1px darkblue;*/
+}
+
+
+
 
 
 .drag-home {
+    z-index: 99;
     position: absolute;
 
     top: 290px;
@@ -96,7 +115,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
 
     /*border: solid 2px gold;*/
 
-    background-color: rgba(0,75,125,0.05);
+    /*background-color: rgba(0,75,125,0.05);*/
 }
 
 
@@ -170,28 +189,65 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     height: 75px !important;
 }
 
+.drop-slot-empty {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 75px !important;
+    height: 75px !important;
+}
+
 .drag-slot {
-    border:1px #999 solid;
     /* bit hacky now */
     margin-top: 3px;
     margin-bottom: 3px;
+
+    /*border:1px #999 solid;*/
 }
 /*hack display for the totals*/
 .drop-display {
-    /*border:1px #999 solid;*/
     margin-top: 3px;
     margin-bottom: 3px;
+
+    /*width: 75px !important;*/
+
+    /*border:1px #999 solid;*/
 }
 
 .row-indicator {
-    /*border:1px #229 solid;*/
     height: 100%;
     /* bit hacky now */
     padding-top: 20px;
+
+    /*border:1px #229 solid;*/
 }
 
 .row-indicator-left {
     margin-left: -19px;
+}
+
+.column-indicator {
+    text-align: center;
+}
+.column-indicator p{
+    margin-top: -25px;
+
+    /*border:1px #229 solid;*/
+}
+.column-indicator-bottom {
+    margin-top: 190px;
+
+    /*border:1px #229 solid;*/
+}
+.column-indicator-bottom p {
+    margin-top: 25px;
+}
+.diagonal-left {
+    margin-left: -55px;
+}
+.diagonal-right {
+    margin-left: 145px;
 }
 
 
@@ -265,3 +321,8 @@ li{
 #six li		{ width:16.666%; }
 
 #single li	{ width:100%;}
+
+
+.single li	{ width:100%; background-color: green;}
+.triple li { width:33.333%; }
+.double li { width:50%; background-color: green; }

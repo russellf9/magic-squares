@@ -22,6 +22,10 @@
         this.mod3 = function(elm) {
             return !(elm.value % 3);
         };
+        //
+        this.mod4 = function(elm) {
+            return !(elm.value % 4);
+        };
     }]);
 }());
 

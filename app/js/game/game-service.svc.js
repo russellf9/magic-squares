@@ -69,6 +69,52 @@
                     }
                     return total;
                 },
+                /**
+                 * 0, 3, 6
+                 * @param value
+                 */
+                getColumnTotal: function(value) {
+                    var total = 0;
+                    switch (value) {
+                        case 0:
+                        {
+                            total = _column1;
+                            break;
+                        }
+                        case 3:
+                        {
+                            total = _column2;
+                            break;
+                        }
+                        case 6:
+                        {
+                            total = _column3;
+                            break;
+                        }
+                    }
+                    return total;
+                },
+                /**
+                 * 0 1
+                 * @param value
+                 * @returns {number}
+                 */
+                getDiagonalTotal : function(value) {
+                    var total = 0;
+                    switch (value) {
+                        case 0:
+                        {
+                            total = _diagonal1;
+                            break;
+                        }
+                        case 1:
+                        {
+                            total = _diagonal2;
+                            break;
+                        }
+                    }
+                    return total;
+                },
                 watchSelectedItems: function() {
                     var self = this;
                     $rootScope.$watchCollection(this.selectedItems, function(newValue, oldValue, scope) {
