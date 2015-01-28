@@ -22,6 +22,9 @@
                 if (!self.complete) {
                     self.checked = false;
                 }
+                else if(self.complete && self.checked) {
+                    self.checked = false;
+                }
             }
         });
 
