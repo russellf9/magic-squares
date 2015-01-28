@@ -13,18 +13,19 @@
 
         Game.setDropItems(this.dropTargets);
 
+
+        // drag
+        Game.init();
+
         // the drag items
-        this.list2 = [];
+        this.dragItems = Game.getDragItems();
 
-        Game.setDragItems(this.list2);
+        this.selectedItems = Game.selectedItems();
 
-        this.selectedItems = [];
-
-        Game.setSelectedItems(this.selectedItems);
 
         for (var i = 0; i < this.numberOfSquares; i++) {
             this.dropTargets.push({value: i});
-            this.list2.push({title: String(i + 1), drag: true});
+
         }
 
         this.startCallback = function(event, ui, title) {

@@ -22,7 +22,7 @@
             _diagonal1 = 0,
             _diagonal2 = 0,
             _dropItems,
-            _dragItems,
+            _dragItems = [],
 
             game = {
                 numberOfSquares: function() {
@@ -46,9 +46,7 @@
                 getUpdateValues: function() {
                     return _gameValues;
                 },
-                setDragItems: function(items) {
-                    _dragItems = items;
-                },
+
                 getDragItems: function() {
                     return _dragItems;
                 },
@@ -137,8 +135,14 @@
                         }
                     });
                 },
+                init: function() {
+                    this.setDragItems();
+                },
+                /**
+                 * Resets the items
+                 */
                 clear: function() {
-                    this.clearDragItems();
+                    this.setDragItems();
                     this.clearDropItems();
                     this.clearSelectedItems();
                     this.update();
@@ -149,10 +153,17 @@
                         _dropItems.push({value: i});
                     }
                 },
-                clearDragItems: function() {
-                    _.forEach(_dragItems, function(drag, key) {
-                        _dragItems[key] = {drag: true, title: String(key + 1)};
-                    });
+                setDragItems: function() {
+                    // bit messy here!
+                    if (_dragItems.length > 0) {
+                        _.forEach(_dragItems, function(drag, key) {
+                            _dragItems[key] = {title: String(key + 1), drag: true};
+                        });
+                    } else {
+                        for (var i = 0; i < _numberOfSquares; i++) {
+                            _dragItems.push({title: String(i + 1), drag: true});
+                        }
+                    }
                 },
                 clearSelectedItems: function() {
                     _.forEach(_selectedItems, function(drop, key) {
