@@ -36,7 +36,7 @@
                 </div>
 
                 <!--ROW-INDICATOR-->
-                <div ng-if="true" class="drop-zone-overlay drop-zone-overlay-one">
+                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-one">
                     <ul id="single" class="drop-board">
                         <li class="drop-display" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
                             <span class="pull-left row-indicator row-indicator-left"><p>{{dragDrop.getRowTotal(drop.value)}}</p></span>
@@ -46,7 +46,7 @@
                 </div>
 
                 <!--COLUMN-INDICATOR-->
-                <div ng-if="true" class="drop-zone-overlay drop-zone-overlay-two">
+                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-two">
                     <ul class="drop-board triple">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
                            <div class="square column-indicator"><p>{{dragDrop.getColumnTotal(drop.value)}}</p></div>
@@ -56,7 +56,7 @@
                 </div>
 
                 <!--DIAGONAL-INDICATOR-->
-                <div ng-if="true" class="drop-zone-overlay drop-zone-overlay-three">
+                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-three">
                     <ul class="drop-board">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | first: 2">
 
@@ -83,9 +83,11 @@
             <!--CONTROLS-->
             <div class="game-controls">
                 <form style="margin-top: 5px; margin-left: 10px;">
-                    complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}}
+                    <span ng-if="false">complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}} hint {{master.hint}}</span>
+
                     <button style="display: inline; margin-right: 10px;" class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.check()" ng-disabled="!master.complete || master.checked">Check</button>
                     <button style="display: inline; margin-right: 10px;" class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.clear()" ng-disabled="!master.selected > 0">Clear</button>
+                    <button style="display: inline; margin-right: 10px;" class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.hint =! master.hint">Hint</button>
                 </form>
             </div>
         </div><!--end game-container-->
