@@ -21,6 +21,8 @@
             _column3 = 0,
             _diagonal1 = 0,
             _diagonal2 = 0,
+            _dropItems,
+            _dragItems,
 
             game = {
                 numberOfSquares: function() {
@@ -43,6 +45,18 @@
                 },
                 getUpdateValues: function() {
                     return _gameValues;
+                },
+                setDragItems: function(items) {
+                    _dragItems = items;
+                },
+                getDragItems: function() {
+                    return _dragItems;
+                },
+                setDropItems: function(items) {
+                    _dropItems = items;
+                },
+                getDropItems: function() {
+                    return _dropItems;
                 },
                 /**
                  * 0,3,6
@@ -99,7 +113,7 @@
                  * @param value
                  * @returns {number}
                  */
-                getDiagonalTotal : function(value) {
+                getDiagonalTotal: function(value) {
                     var total = 0;
                     switch (value) {
                         case 0:
@@ -120,6 +134,30 @@
                     $rootScope.$watchCollection(this.selectedItems, function(newValue, oldValue, scope) {
                         if (newValue && newValue !== oldValue) {
                             self.update();
+                        }
+                    });
+                },
+                clear: function() {
+                    this.clearDragItems();
+                    this.clearDropItems();
+                    this.clearSelectedItems();
+                    this.update();
+                },
+                clearDropItems: function() {
+                    _dropItems = [];
+                    for (var i = 0; i < _numberOfSquares; i++) {
+                        _dropItems.push({value: i});
+                    }
+                },
+                clearDragItems: function() {
+                    _.forEach(_dragItems, function(drag, key) {
+                        _dragItems[key] = {drag: true, title: String(key + 1)};
+                    });
+                },
+                clearSelectedItems: function() {
+                    _.forEach(_selectedItems, function(drop, key) {
+                        if (drop) {
+                            _selectedItems[key] = {drag: false};
                         }
                     });
                 },
@@ -196,6 +234,7 @@
         return game;
     }]);
 }());
+
 
 
 

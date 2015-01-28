@@ -11,7 +11,12 @@
 
         this.dropTargets = [];
 
+        Game.setDropItems(this.dropTargets);
+
+        // the drag items
         this.list2 = [];
+
+        Game.setDragItems(this.list2);
 
         this.selectedItems = [];
 
@@ -99,7 +104,8 @@
         this.getDiagonalTotalReverse = function(value) {
             var reverse = (value === 0) ? 1: 0;
             return Game.getDiagonalTotal(reverse);
-        }
+        };
+
     }]);
 
 }());

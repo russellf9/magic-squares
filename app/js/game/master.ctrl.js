@@ -9,12 +9,19 @@
 
         this.selected = 0;
 
+        this.checked = false;
+
+        this.complete = false;
+
         // watches for any change in the `game state`
         $scope.$watch(Game.getUpdateValues, function(newValue, oldValue) {
             if (newValue && newValue !== oldValue) {
                 self.allCorrect = Boolean(newValue.correct);
                 self.selected = newValue.selected;
                 self.complete = newValue.complete;
+                if (!self.complete) {
+                    self.checked = false;
+                }
             }
         });
 
@@ -22,9 +29,16 @@
         this.mod3 = function(elm) {
             return !(elm.value % 3);
         };
-        //
-        this.mod4 = function(elm) {
-            return !(elm.value % 4);
+
+        // user function which to display the completed values
+        this.check = function() {
+            this.checked = true;
+        };
+        /**
+         * Resets the game
+         */
+        this.clear = function() {
+            Game.clear();
         };
     }]);
 }());
