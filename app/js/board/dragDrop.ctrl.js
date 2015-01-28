@@ -7,26 +7,14 @@
 
         var self = this;
 
-        this.numberOfSquares = Game.numberOfSquares();
-
-        this.dropTargets = [];
-
-        Game.setDropItems(this.dropTargets);
-
-
-        // drag
-        Game.init();
+        this.dropTargets = Game.getDropItems();
 
         // the drag items
         this.dragItems = Game.getDragItems();
 
         this.selectedItems = Game.selectedItems();
 
-
-        for (var i = 0; i < this.numberOfSquares; i++) {
-            this.dropTargets.push({value: i});
-
-        }
+        Game.init();
 
         this.startCallback = function(event, ui, title) {
             console.log('DragDrop::startCallback  You started dragging: ' + title.title);
@@ -80,14 +68,14 @@
          * @param value
          */
         this.getRowTotal = function(value) {
-            return Game.getRowTotal(value);  // 0, 1, 3
+            return Game.getRowTotal(value);
         };
         /**
          *
          * @param value
          */
         this.getColumnTotal = function(value) {
-            return Game.getColumnTotal(value);  // 0, 3, 6
+            return Game.getColumnTotal(value);
         };
         /**
          *

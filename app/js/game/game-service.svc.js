@@ -21,7 +21,7 @@
             _column3 = 0,
             _diagonal1 = 0,
             _diagonal2 = 0,
-            _dropItems,
+            _dropItems = [],
             _dragItems = [],
 
             game = {
@@ -50,9 +50,7 @@
                 getDragItems: function() {
                     return _dragItems;
                 },
-                setDropItems: function(items) {
-                    _dropItems = items;
-                },
+
                 getDropItems: function() {
                     return _dropItems;
                 },
@@ -137,6 +135,24 @@
                 },
                 init: function() {
                     this.setDragItems();
+                    this.setDropItems();
+                },
+                setDragItems: function() {
+                    // bit messy here!
+                    if (_dragItems.length > 0) {
+                        _.forEach(_dragItems, function(drag, key) {
+                            _dragItems[key] = {title: String(key + 1), drag: true};
+                        });
+                    } else {
+                        for (var i = 0; i < _numberOfSquares; i++) {
+                            _dragItems.push({title: String(i + 1), drag: true});
+                        }
+                    }
+                },
+                setDropItems: function() {
+                    for (var i = 0; i < _numberOfSquares; i++) {
+                        _dropItems.push({value: i});
+                    }
                 },
                 /**
                  * Resets the items
@@ -151,18 +167,6 @@
                     _dropItems = [];
                     for (var i = 0; i < _numberOfSquares; i++) {
                         _dropItems.push({value: i});
-                    }
-                },
-                setDragItems: function() {
-                    // bit messy here!
-                    if (_dragItems.length > 0) {
-                        _.forEach(_dragItems, function(drag, key) {
-                            _dragItems[key] = {title: String(key + 1), drag: true};
-                        });
-                    } else {
-                        for (var i = 0; i < _numberOfSquares; i++) {
-                            _dragItems.push({title: String(i + 1), drag: true});
-                        }
                     }
                 },
                 clearSelectedItems: function() {
