@@ -2,7 +2,7 @@
     <div class="col-md-7">
         <div class="game-container" ng-controller="Master as master">
             <!--THE INSTRUCTIONS-->
-            <div class="instructions" ng-controller="Instructions as instructions" style="padding-top:10px">
+            <div class="instructions" ng-controller="Instructions as instructions" style="padding-top:5px">
                 <h4 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h4>
                 <h6 ng-if='!master.checked' class="center-text">{{instructions.instructions}}</h6>
                 <h4 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done
