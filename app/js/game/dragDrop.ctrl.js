@@ -17,19 +17,32 @@
         this.selectedItems = Game.selectedItems();
 
         // callbacks
+        /**
+         * evoked when the user begins to drag the item
+         * @param event
+         * @param ui
+         * @param title
+         */
         this.startCallback = function(event, ui, title) {
             console.log('DragDrop::startCallback  You started dragging: ' + title.title);
             self.draggedTitle = title.title;
         };
-
+        /**
+         * evoked when the user stops to drag the item
+         * @param event
+         * @param ui
+         */
         this.stopCallback = function(event, ui) {
             console.log('DragDrop::stopCallback - Why did you stop dragging me?');
         };
-
+        /**
+         * evoked when the user is dragging an item
+         * @param event
+         * @param ui
+         */
         this.dragCallback = function(event, ui) {
             console.log('DragDrop::dragCallback - hey, look I`m flying');
         };
-
         /**
          * Evoked when a `drag` item has been dropped into the `drop` item
          * @param event
@@ -40,7 +53,6 @@
             var currentDragItem = Game.selectedItems()[index];
             console.log('DragDrop::dropCallback  - hey, you dumped me :-(', currentDragItem.title);
         };
-
         /**
          * Evoked when a `drag` item is over `drop` item
          * Note: can be evoked when the user is dragging another drag item over this drag item!
@@ -52,7 +64,6 @@
         this.overCallback = function(event, ui, dropTarget, dragIndex) {
             console.log('DragDrop::overCallback - Look, the drag?: ', dragIndex);
         };
-
         /**
          * Evoked when a `drag` item has been removed from a `drop` item
          * @param event
@@ -90,8 +101,7 @@
         this.getDiagonalTotal = function(value) {
             return Game.getDiagonalTotal(value);
         };
-        /**
-         * returns the total of the selected items in the selected diagonal
+         /* returns the total of the selected items in the selected diagonal
          * @param value
          * @returns {number}
          */

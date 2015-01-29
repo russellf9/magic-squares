@@ -88,8 +88,6 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
 
 
 
-
-
 .drag-home {
     z-index: 99;
     position: absolute;
@@ -130,28 +128,6 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     /*border: solid 2px gold;*/
 
     /*background-color: rgba(0,75,125,0.05);*/
-}
-
-
-
-
-/* TODO apply similar opacity effect on drag */
-.lvl-target {
-    /* applied to all drop targets when a drag operation begins, used to indicate drop targets on a page */
-    background-color: #ddd;
-    opacity: .5;
-}
-
-[draggable] {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    /* Required to make elements draggable in old WebKit */
-    -khtml-user-drag: element;
-    -webkit-user-drag: element;
-    cursor: move;
-    border:1px solid black;
 }
 
 
@@ -346,6 +322,6 @@ li{
 #single li	{ width:100%;}
 
 
-.single li	{ width:100%; background-color: green;}
+.single li	{ width:100%;}
 .triple li { width:33.333%; }
-.double li { width:50%; background-color: green; }
+.double li { width:50%; }
