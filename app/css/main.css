@@ -94,7 +94,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     z-index: 99;
     position: absolute;
 
-    top: 290px;
+    top: 294px;
     left: 0;
 
     width: 600px;
@@ -104,6 +104,20 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     padding-left: 35px;
 
     /*border: solid 2px gold;*/
+}
+
+.drag-home-bgd {
+    z-index: -4;
+    position: absolute;
+
+    top: 294px;
+    left: 0;
+
+    width: 600px;
+    height: 190px;
+    /* quick positioning hack */
+    padding-top: 8px;
+    padding-left: 35px;
 }
 
 .game-controls {
@@ -144,6 +158,9 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
 .btn-droppable {
     padding: 0;
     /*z-index: -1;*/
+    /*hack so drag item fits over*/
+    margin-top: -2px;
+    margin-left: -2px;
     cursor: default;
 }
 
@@ -181,7 +198,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
 
 .drop-slot {
     display: inline-block;
-    border: dashed 1px darkgreen;
+    border: dotted 1px darkgreen;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
@@ -189,7 +206,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     height: 75px !important;
 }
 
-.drop-slot-empty {
+.slot-empty {
     display: inline-block;
     margin-left: 5px;
     margin-right: 5px;
@@ -202,8 +219,14 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     /* bit hacky now */
     margin-top: 3px;
     margin-bottom: 3px;
+    padding: 0;
 
-    /*border:1px #999 solid;*/
+    border:1px #d3d3d3 solid;
+}
+
+.drag-slot-empty {
+    padding: 0;
+    border:1px #d3d3d3 solid;
 }
 /*hack display for the totals*/
 .drop-display {
@@ -247,7 +270,7 @@ h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
     margin-left: -55px;
 }
 .diagonal-right {
-    margin-left: 145px;
+    margin-left: 158px;
 }
 
 
