@@ -31,6 +31,11 @@ Eventually, it would be nice to use [Cordova](http://cordova.apache.org) and or 
 **Drag and Drop**
 I'm using the Drag and Drop from [angular-dragdrop](https://github.com/codef0rmer/angular-dragdrop)
 
+
+```
+$ bower install --save-dev angular-dragdrop
+```
+
 This works really well, you just have to remember to install the required dependencies - [jquery-ui.css], and [jquery-ui.js]. (Will need to check that was all.)
 
 **Coding Standards**
