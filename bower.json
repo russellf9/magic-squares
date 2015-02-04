@@ -23,7 +23,8 @@
     "ngDraggable": "*",
     "lodash": "~3.0.0",
     "angular-filter": "~0.5.2",
-    "angular-touch": "~1.3.11"
+    "angular-touch": "~1.3.11",
+    "jquery-ui-touch-punch": "*"
   },
   "resolutions": {
     "angular": "1.3.11"
